@@ -143,7 +143,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
 
     try {
-      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("uuuu-MM-dd")
           .withResolverStyle(ResolverStyle.STRICT);
 
       LocalDate.parse(dateStr, formatter);

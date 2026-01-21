@@ -15,7 +15,7 @@ public class MainController {
     this.productController = productController;
     this.customerController = customerController;
     this.invoiceController = invoiceController;
-  }
+  } 
 
   public void startApplication() {
     if (adminController.login()) {

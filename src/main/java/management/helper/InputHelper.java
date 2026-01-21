@@ -12,8 +12,11 @@ public class InputHelper {
       try {
         System.out.println(message);
         String input = scanner.nextLine().trim();
-        return Integer.parseInt(input);
-
+        int num = Integer.parseInt(input);
+        if (num < 0) {
+          throw new NumberFormatException();
+        }
+        return num;
       } catch (NumberFormatException e) {
         System.err.println("Please enter a valid number");
       }

@@ -79,7 +79,13 @@ public class InvoiceController {
                 + p.getStock());
 
         int qty = InputHelper.getInteger("   - Quantity: ");
-        cart.add(new InvoiceDetailRequest(pid, qty));
+
+        if (qty > p.getStock()) {
+          System.err.println("      Error: Not enough stock! Available: " + p.getStock());
+        } else {
+          cart.add(new InvoiceDetailRequest(pid, qty));
+          System.out.println("      Added to cart.");
+        }
 
       } catch (Exception e) {
         System.err.println("      Product not found.");
@@ -115,7 +121,17 @@ public class InvoiceController {
       }
       case 2 -> {
         String date = InputHelper.getString("Enter Date (yyyy-MM-dd): ");
-        printTable(invoiceService.searchByDate(date));
+
+        if (!date.matches("^\\d{4}-\\d{2}-\\d{2}$")) {
+          System.err.println(" Invalid date format! Please use yyyy-MM-dd (e.g., 2025-01-30)");
+          return;
+        }
+
+        try {
+          printTable(invoiceService.searchByDate(date));
+        } catch (Exception e) {
+          System.err.println(" Search failed: " + e.getMessage());
+        }
       }
       case 3 -> {
       }

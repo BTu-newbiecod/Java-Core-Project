@@ -287,7 +287,7 @@ public class ProductRepositoryImpl extends BaseJdbcRepository implements Product
         ProductSqlConstant.UPDATE_STOCK_SQL)) {
 
       preparedStatement.setInt(idx++, quantity);
-      preparedStatement.setString(idx, productId);
+      preparedStatement.setString(idx++, productId);
       preparedStatement.setInt(idx, quantity);
 
       int row = preparedStatement.executeUpdate();
