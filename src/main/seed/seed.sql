@@ -1,3 +1,10 @@
+DROP
+DATABASE IF EXISTS phone_store;
+CREATE
+DATABASE phone_store;
+USE
+phone_store;
+
 create table Admin
 (
     id       varchar(50) primary key,
